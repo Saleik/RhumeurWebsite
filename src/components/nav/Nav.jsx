@@ -22,8 +22,8 @@ const Navbar = styled.nav`
     justify-content:center;
     height:4rem;
     width: 100%;
-    border-bottom: 1px solid lightgray;
-    box-shadow: .1rem .1rem .1rem lightgray;
+    border-bottom: 1px solid lightgrey;
+    box-shadow: .1rem .1rem .1rem  lightblue;
     z-index:1;
     background-color: white;
     `

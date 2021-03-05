@@ -3,7 +3,7 @@ export default {
     name: 'manufacture',
     title: 'Fabrication',
     type: 'document',
-    __experimental_actions: ['update', 'publish', 'create'],
+    __experimental_actions: ['update', 'publish'],
     fields: [
         {
             name: 'link',

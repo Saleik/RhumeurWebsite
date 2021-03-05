@@ -33,7 +33,13 @@ export const DataProvider = props => {
                             link
                         },
                         text,
-                    }[0] 
+                    }[0],
+                    "bestSellers":*[_type == "products"]{
+                       "image": picture.asset->url,
+                        alt,
+                        name,
+                        resume
+                    }
                 }`
 
     //fetch data to sanity studio

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -6,7 +6,10 @@ export const GlobalStyle = createGlobalStyle`
         src: url('font/AvenirLTStd-Black.otf') format('otf');
 
         font-family:'Roboto';
-        src: url('font/Roboto-Regular.ttf') format()('ttf');
+        src: url('font/Roboto-Regular.ttf') format('ttf');
+
+        font-family:'Finger Paint';
+        src: url('font/FingerPaint-Regular.ttf') format('ttf');
     }
 
     html,
@@ -16,12 +19,15 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1vw;
         width: 100vw;
         height: auto;
-        overflow-x: hidden;
+        overflow-x: hidden;      
+        scroll-behavior: smooth;
     }
+
     body{
         box-sizing: border-box;
         font-family:'Avenir';
         letter-spacing: .2rem;
+  
     }
 
     body::-webkit-scrollbar {
@@ -40,11 +46,18 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: black;
     }
+`
 
-    section{
+export const TitleSection = styled.div`
+        justify-self: center;
+        font-family:'Roboto', sans-serif;
+    `
+
+export const Section = styled.section`
+        display: grid;
+        grid-auto-rows: min-content;
         width: 100%;
         height: auto;
         position: relative;
         padding-top: 5rem;
-    }
 `

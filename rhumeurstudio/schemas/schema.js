@@ -12,6 +12,7 @@ import author from './author'
 import menu from './menu'
 import homepage from './homepage'
 import manufacture from './manufacture'
+import products from './products'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,6 +26,7 @@ export default createSchema({
     menu,
     homepage,
     manufacture,
+    products,
     post,
     author,
     category,

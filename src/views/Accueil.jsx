@@ -1,7 +1,8 @@
 import React from 'react';
 import { useData } from '../contexts/dataContext';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { Section } from '../styles/globalStyles';
+
 const ImageContainer = styled.div`
          grid-column:1 /span 2;
          grid-row:1;
@@ -10,24 +11,31 @@ const CstImg = styled.img`
         width: 100%;
         height: auto;
     `
-const CstSection = styled.section`
+const CstSection = styled(Section)`
         padding-top:0;
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-auto-rows: min-content;
     `
-const InsertionContainer = styled(motion.div)`
+const InsertionContainer = styled.div`
         grid-column:2;
         grid-row: 1;
-        color: transparent;
+        color: white;
         display:flex;
+        flex-direction: column;
         justify-content:center;
         align-items:center;
         padding: 0 5rem;
         line-height:2rem;
-        text-shadow: 0 0 .5em rgba(255, 255, 255, .5);
 
     `
+
+const BrandTitle = styled.h1`
+        font-family: 'Finger Paint', cursive;
+        font-size: 5rem;
+        font-weight:normal;
+        color: white; 
+        -webkit-text-stroke: .1rem black;
+    `
+
 export const Accueil = () => {
 
     const { data } = useData();
@@ -43,7 +51,8 @@ export const Accueil = () => {
             <ImageContainer>
                 <CstImg src={url} alt={alt} />
             </ImageContainer>
-            <InsertionContainer animate={{ color: 'rgba(255, 255, 255, 1)', textShadow: '0 0 0 rgba(255,255,255, 0)' }} transition={{ duration: .7 }}>
+            <InsertionContainer>
+                <BrandTitle>Rhumeur</BrandTitle>
                 <p>{insertion}</p>
             </InsertionContainer>
         </CstSection>

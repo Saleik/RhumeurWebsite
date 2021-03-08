@@ -10,7 +10,7 @@ function App() {
 
   return (<>
     <GlobalStyle />
-    {isLoading ? <h1>Chargement...</h1> : error ? <h1> ERREUR LORS DU CHARGEMENT DES DONNÉES</h1> : (
+    {isLoading ? <h1>Chargement...</h1> : error !== null ? <h1> ERREUR LORS DU CHARGEMENT DES DONNÉES</h1> : (
       <>
         <Nav items={{ 'Accueil': 'accueil', 'Fabrication': 'fabrication', 'Best Sellers': 'bestSellers', 'Qui sommes-nous ?': 'quiSommesNous', 'Contact': 'contact' }} />
         <main>
@@ -25,3 +25,5 @@ function App() {
 }
 
 export default App;
+
+

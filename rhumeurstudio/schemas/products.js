@@ -37,6 +37,14 @@ export default {
             description: 'Description de la recette (maximum de 10 lignes)',
             type: 'text',
             validation: Rule => Rule.required()
+        },
+        {
+            name: 'link',
+            title: 'Lien',
+            type: 'url',
+            description: 'Lien vers la bouteille de rhum arrangé sur le site Thé Shèjoma',
+            validation: Rule => Rule.required()
+
         }
     ]
 }

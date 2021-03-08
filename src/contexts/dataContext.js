@@ -6,7 +6,7 @@ const DataContext = React.createContext({});
 export const DataProvider = props => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState();
+    const [error, setError] = useState(null);
 
     const query = `{
                     "menu": *[_type == "menu"]{
@@ -38,7 +38,8 @@ export const DataProvider = props => {
                        "image": picture.asset->url,
                         alt,
                         name,
-                        resume
+                        resume,
+                        link
                     }
                 }`
 

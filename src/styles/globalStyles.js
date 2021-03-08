@@ -42,22 +42,23 @@ export const GlobalStyle = createGlobalStyle`
     background-color: lightblue;    /* color of the scroll thumb */
     }
 
+    section{
+         width: 100vw;
+        height: auto;
+        padding-top: 5rem;
+    }
     a{
         text-decoration: none;
         color: black;
     }
 `
-
 export const TitleSection = styled.div`
         justify-self: center;
         font-family:'Roboto', sans-serif;
     `
 
-export const Section = styled.section`
+export const Container = styled.div`
         display: grid;
-        grid-auto-rows: min-content;
-        width: 100%;
-        height: auto;
         position: relative;
-        padding-top: 5rem;
+        grid-auto-rows: min-content;
 `

@@ -1,20 +1,25 @@
 import React from 'react';
 import { useData } from '../contexts/dataContext';
 import styled from 'styled-components';
-import { Section } from '../styles/globalStyles';
+import { Container } from '../styles/globalStyles';
+import { Button } from '../components/button/Button';
 
 const ImageContainer = styled.div`
          grid-column:1 /span 2;
          grid-row:1;
-    `
+    `;
 const CstImg = styled.img`
         width: 100%;
         height: auto;
-    `
-const CstSection = styled(Section)`
+    `;
+const Section = styled.section`
         padding-top:0;
-        grid-template-columns: 1fr 1fr;
-    `
+       
+    `;
+
+const CstContainer = styled(Container)`
+         grid-template-columns: 1fr 1fr;
+    `;
 const InsertionContainer = styled.div`
         grid-column:2;
         grid-row: 1;
@@ -26,7 +31,7 @@ const InsertionContainer = styled.div`
         padding: 0 5rem;
         line-height:2rem;
 
-    `
+    `;
 
 const BrandTitle = styled.h1`
         font-family: 'Finger Paint', cursive;
@@ -34,7 +39,7 @@ const BrandTitle = styled.h1`
         font-weight:normal;
         color: white; 
         -webkit-text-stroke: .1rem black;
-    `
+    `;
 
 export const Accueil = () => {
 
@@ -47,15 +52,21 @@ export const Accueil = () => {
     const insertion = data.accueil.text;
 
     return (
-        <CstSection id="accueil">
-            <ImageContainer>
-                <CstImg src={url} alt={alt} />
-            </ImageContainer>
-            <InsertionContainer>
-                <BrandTitle>Rhumeur</BrandTitle>
-                <p>{insertion}</p>
-            </InsertionContainer>
-        </CstSection>
+        <Section id="accueil">
+            <CstContainer>
+                <ImageContainer>
+                    <CstImg src={url} alt={alt} />
+                </ImageContainer>
+                <InsertionContainer>
+                    <BrandTitle>Rhumeur</BrandTitle>
+                    <p>{insertion}</p>
+                    <Button fontSize={'1.5rem'} fontColor='white' link={data.menu.eshopLink}>
+                        Acheter
+                    </Button>
+                </InsertionContainer>
+            </CstContainer>
+
+        </Section>
     )
 }
 

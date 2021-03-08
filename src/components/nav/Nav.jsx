@@ -16,7 +16,7 @@ const Navbar = styled.nav`
             position: fixed;    
         `
         }
-    }}
+    }};
     display: flex;
     align-items: center;
     justify-content:center;
@@ -26,13 +26,12 @@ const Navbar = styled.nav`
     box-shadow: .1rem .1rem .1rem  lightblue;
     z-index:1;
     background-color: white;
-    `
-
-const CstUl = styled.ul`
-        text-align: center;
+    ul{
+         text-align: center;
         width: 100%;
         margin: 0 auto;
-    `
+    }
+    `;
 
 export const Nav = props => {
     const { items } = props;
@@ -43,7 +42,7 @@ export const Nav = props => {
     const alt = data.menu.logo.alt;
 
     //ecommerce Rhumeur website url
-    const eshopLink = data.menu.eshopLink
+    const eshopLink = data.menu.eshopLink;
 
     //social-media url
     const facebookLink = data.menu.socialMedia.facebook;
@@ -60,15 +59,16 @@ export const Nav = props => {
                 setPositionToFixed(false);
             }
         }
-    }, [])
+    }, []);
+
     return (
         <Navbar fixed={positionToFixed}>
             <Brand src={url} alt={alt} />
-            <CstUl>
+            <ul>
                 {
                     Object.entries(items).map(obj => (<Items key={uuidv4()} link={obj[1]} tag={obj[0]} />))
                 }
-            </CstUl>
+            </ul>
             <Shop url={eshopLink} />
             <Social socialNetwork={{ 'facebook-f': facebookLink, 'instagram': instagramLink }} />
         </Navbar>

@@ -7,10 +7,9 @@ const Item = styled.li`
     display: inline;
     margin: 0 1rem 0 1rem;
     position: relative;
-`
 
-const CstA = styled.a`
-        :after{
+    a{
+         :after{
             background: none repeat scroll 0 0 transparent;
             bottom:-.5rem;
             content:"";
@@ -26,9 +25,10 @@ const CstA = styled.a`
             width: 100%;
             left:0;
         }
-    `
+    }
+`;
 
 export const Items = props => {
     const { link, tag } = props;
-    return (<Item><CstA href={'#' + link}>{tag}</CstA></Item>)
+    return (<Item><a href={'#' + link}>{tag}</a></Item>)
 }

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-    name: 'products',
-    title: 'Best Sellers-Divers',
+    name: 'productsSpice',
+    title: 'Best Sellers-Epice',
     type: 'document',
     __experimental_actions: ['update', 'publish', 'create', 'delete'],
     fields: [

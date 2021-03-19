@@ -34,13 +34,45 @@ export const DataProvider = props => {
                         },
                         text,
                     }[0],
-                    "bestSellers":*[_type == "products"]{
+                    "bestSellersIntroduce":*[_type == "productIntroduce"]{
+                      text,
+                    }[0],
+					"bestSellers":*[_type == "products"]{
+
                        "image": picture.asset->url,
                         alt,
                         name,
                         resume,
-                        link
-                    }
+                      	link
+                    }[0...4],
+                    "bestSellersSpice":*[_type == "productsSpice"]{
+
+                       "image": picture.asset->url,
+                        alt,
+                        name,
+                        resume,
+                      	link
+                    }[0...4],
+					"bestSellersFruit":*[_type == "productsFruit"]{
+
+                       "image": picture.asset->url,
+                        alt,
+                        name,
+                        resume,
+                      	link
+                    }[0...4],
+                    "quiSommesNousIntroduction": *[_type == "whoWeAreIntroduce"]{
+                        text,
+                    }[0],
+                    "quiSommesNous": *[_type == "whoWeAre"]{
+                      "image": picture.asset->url,
+                      firstName,
+                      presentation
+                    },
+                    "quiSommesNousGalerie":*[_type =="gallery"]{
+                   	"image":image.asset->url,
+                      caption
+                    }[0...6],
                 }`
 
     //fetch data to sanity studio

@@ -8,10 +8,12 @@ const ImageContainer = styled.div`
          grid-column:1 /span 2;
          grid-row:1;
     `;
+
 const CstImg = styled.img`
         width: 100%;
         height: auto;
     `;
+
 const Section = styled.section`
         padding-top:0;
        
@@ -20,6 +22,7 @@ const Section = styled.section`
 const CstContainer = styled(Container)`
          grid-template-columns: 1fr 1fr;
     `;
+
 const InsertionContainer = styled.div`
         grid-column:2;
         grid-row: 1;

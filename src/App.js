@@ -4,6 +4,7 @@ import { useData } from "./contexts/dataContext";
 import { Accueil } from "./views/Accueil";
 import { Fabrication } from "./views/Fabrication";
 import { BestSellers } from "./views/BestSellers";
+import { QuiSommesNous } from "./views/QuiSommesNous";
 
 function App() {
   const { isLoading, error } = useData();
@@ -17,6 +18,7 @@ function App() {
           <Accueil />
           <Fabrication />
           <BestSellers />
+          <QuiSommesNous />
         </main>
       </>
     )}

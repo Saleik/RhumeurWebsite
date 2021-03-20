@@ -5,7 +5,7 @@ import { CardMember } from '../components/cardMember/CardMember';
 import { Gallery } from '../components/gallery/Gallery';
 import { Introduce } from '../components/introduce/Introduce';
 import { useData } from '../contexts/dataContext';
-import { Container, TitleSection } from '../styles/globalStyles';
+import { Container, Title } from '../styles/globalStyles';
 
 const Section = styled.section`
     display:flex;
@@ -16,7 +16,7 @@ const CstContainer = styled(Container)`
     grid-template-columns:repeat(3, 1fr);
 `;
 
-const CstTitleSection = styled(TitleSection)`
+const CstTitle = styled(Title)`
     grid-column: 1/span3;
     grid-row: 1;
     justify-self: center;
@@ -28,37 +28,42 @@ const GalleryWrapper = styled.div`
     grid-column: 1/span3;
     grid-row: ${props => props.lastRows && props.lastRows} ;
     text-align:center;
+
+    span{
+        font-weight: bold;
+    }
 `;
 
-const Span = styled.span`
-        font-weight: bold;
-    `
 export const QuiSommesNous = () => {
 
     const { data } = useData();
     const sectionIntroduce = data.quiSommesNousIntroduction.text;
     const members = data.quiSommesNous;
+    const galleryPicture = data.quiSommesNousGalerie;
 
     const lastRows = Math.round(members.length + 2) + 1;
 
-    const galleryPicture = data.quiSommesNousGalerie;
-
     return (
-        <Section>
+        <Section id="quiSommesNous">
             <CstContainer>
-                <CstTitleSection>
+                <CstTitle>
                     Qui somme-nous ?
-            </CstTitleSection>
+            </CstTitle>
                 <Introduce colNum='1/span3'>
                     {sectionIntroduce}
                 </Introduce>
                 {members && members.map((member, index) => (
-                    <CardMember key={uuidv4()} index={index} name={member.firstName} pic={member.image}>
+                    <CardMember
+                        key={uuidv4()}
+                        index={index}
+                        name={member.firstName}
+                        pic={member.image}
+                    >
                         {member.presentation}
                     </CardMember>
                 ))}
                 <GalleryWrapper lastRows={lastRows}>
-                    <Span>Vous pouvez aussi nous retrouvez sur les différents salons de la régions Grand-est, ci-dessous des photos de nos bars éphémère:</Span>
+                    <span>Vous pouvez aussi nous retrouvez sur les différents salons de la régions Grand-est, ci-dessous des photos de nos bars éphémère:</span>
                     <Gallery pictures={galleryPicture} />
                 </GalleryWrapper>
             </CstContainer>

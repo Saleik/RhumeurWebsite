@@ -19,7 +19,15 @@ export default {
             name: 'caption',
             title: 'Légende',
             type: 'string',
-            description: '(Important pour le SEO)'
+            description: '(Important pour le SEO)',
+            validation: Rule => Rule.required()
+        },
+        {
+            name: 'texte',
+            title: 'Texte',
+            type: 'text',
+            description: 'Texte positionné sous la photo - 5 lignes maximum',
+            validation: Rule => Rule.required()
         },
     ]
 }

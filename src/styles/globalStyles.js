@@ -32,16 +32,17 @@ export const GlobalStyle = createGlobalStyle`
   
     }
 
+    //Scrollbar
     body::-webkit-scrollbar {
-        width: .4rem;               /* width of the entire scrollbar */
+        width: .4rem;               
     }
 
     body::-webkit-scrollbar-track {
-    background: white;        /* color of the tracking area */
+    background: white;       
     }
 
     body::-webkit-scrollbar-thumb {
-    background-color: lightblue;    /* color of the scroll thumb */
+    background-color: lightblue;   
     }
 
     section{
@@ -88,25 +89,23 @@ export const GlobalStyle = createGlobalStyle`
     .alice-carousel__next-btn-item,
     .alice-carousel__prev-btn-item{
         font-size:3rem;
-        color:white;
+        color:red;
         font-weight:bold;
         :hover{
-            color: red;
+            color: white;
             transition: .5s;
         }
     }
+`;
 
-    .alice-carousel__dots-item:hover, .__active {
-        background-color:red!important;
-    }
-`
-export const TitleSection = styled.h1`
+export const Title = styled.h1`
         justify-self: center;
         font-family:'Roboto', sans-serif;
-    `
+        margin:0;
+    `;
 
 export const Container = styled.div`
         display: grid;
         position: relative;
         grid-auto-rows: min-content;
-`
+`;

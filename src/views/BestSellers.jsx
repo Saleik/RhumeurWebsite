@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useData } from '../contexts/dataContext';
-import { TitleSection, Container } from '../styles/globalStyles';
+import { Title, Container } from '../styles/globalStyles';
 import { Slider } from '../components/slider/Slider';
 import { Introduce } from '../components/introduce/Introduce';
 
@@ -9,7 +9,7 @@ const CstContainer = styled(Container)`
     grid-template-columns: repeat(3, 1fr);
 `;
 
-const Title = styled(TitleSection)`
+const CstTitle = styled(Title)`
     grid-column: 1/span3;
     grid-row:1;
 `;
@@ -47,9 +47,9 @@ export const BestSellers = () => {
     return (
         <section id="bestSellers">
             <CstContainer>
-                <Title>
+                <CstTitle>
                     Best Sellers
-                </Title>
+                </CstTitle>
                 <Introduce>{sectionIntroduce}</Introduce>
                 <ProductWrapper>
                     <Slider products={products} />

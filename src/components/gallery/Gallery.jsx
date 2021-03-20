@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import { Container } from '../../styles/globalStyles';
-import { Carousel } from './childs/Carousel';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import { motion } from 'framer-motion';
 import { Picture } from './childs/Picture';
 
 const CstContainer = styled(Container)`
@@ -12,7 +14,8 @@ const CstContainer = styled(Container)`
     width: 100%;
   
 `;
-const CarouselWrapper = styled.div`
+
+const CarouselWrapper = styled(motion.div)`
     position: fixed;
     width:100vw;
     height:100vh;
@@ -23,37 +26,82 @@ const CarouselWrapper = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
+    z-index:2;
 
-`
+`;
+
+//TODO: Disable arrow controls to mobile device
 export const Gallery = props => {
 
     const { pictures } = props;
-    const [toggle, setToggle] = useState(false);
 
-    const handleClick = () => {
-        setToggle(!toggle);
+    const [toggle, setToggle] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    //Carousel display animate settings
+    const CarouselVariants = {
+        visible: { opacity: 1 },
+        hidden: { opacity: 0 },
     }
+    const handleClick = (id = 0) => {
+        if (toggle) {
+            setActiveIndex(0);
+        } else {
+            setActiveIndex(id)
+        }
+        setToggle(!toggle);
+    };
+
+    //Convert array object to array of html Element for carousel
+    const galleryToArray = () => {
+
+        const items = [];
+        pictures.forEach(item => {
+            items.push(<Picture
+                height='60rem'
+                width='100rem'
+                key={uuidv4()}
+                url={item.image}
+                alt={item.caption}
+                onClick={() => handleClick()}
+                forCarousel
+                caption={item.texte}
+            />)
+        });
+        return items;
+    };
 
     return (
         <CstContainer>
             {
-                pictures.map(picture => (
-                    <Picture scale width='30rem' height='30rem' key={uuidv4()} url={picture.image} alt={picture.caption} onClick={handleClick} />
+                pictures.map((picture, index) => (
+                    <Picture
+                        scale
+                        borderRadius='.5rem'
+                        width='30rem'
+                        height='30rem'
+                        key={uuidv4()}
+                        url={picture.image}
+                        alt={picture.caption}
+                        onClick={() => handleClick(index)}
+                    />
+
                 ))
             }
-
             {toggle && (
-                <CarouselWrapper>
-                    <Carousel>
-                        {
-                            pictures.map(picture => (
-                                <Picture width='100rem' height='60rem' key={uuidv4()} url={picture.image} alt={picture.caption} onClick={handleClick} />
-                            ))
-                        }
-                    </Carousel>
+                <CarouselWrapper
+                    initial="hidden"
+                    animate="visible"
+                    variants={CarouselVariants}
+                >
+                    <AliceCarousel
+                        activeIndex={activeIndex}
+                        items={galleryToArray()}
+                        touchMoveDefaultEvents
+                        disableDotsControls
+                    />
                 </CarouselWrapper>
-            )
-            }
-        </CstContainer>
+            )}
+        </CstContainer >
     )
 }

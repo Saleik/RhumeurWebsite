@@ -71,7 +71,8 @@ export const DataProvider = props => {
                     },
                     "quiSommesNousGalerie":*[_type =="gallery"]{
                    	"image":image.asset->url,
-                      caption
+                    caption,
+                    texte
                     }[0...6],
                 }`
 

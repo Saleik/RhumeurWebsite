@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useData } from '../contexts/dataContext';
 import ReactPlayer from 'react-player/youtube';
-import { TitleSection, Container } from '../styles/globalStyles';
+import { Title, Container } from '../styles/globalStyles';
 import { Introduce } from '../components/introduce/Introduce';
 
 const CstContainer = styled(Container)`
@@ -26,9 +26,9 @@ export const Fabrication = () => {
     return (
         <section id="fabrication">
             <CstContainer>
-                <TitleSection>
+                <Title>
                     Fabrication
-                </TitleSection>
+                </Title>
                 <Introduce>
                     {sectionIntroduce}
                 </Introduce>

@@ -26,8 +26,7 @@ const CarouselWrapper = styled(motion.div)`
     display:flex;
     align-items:center;
     justify-content:center;
-    z-index:2;
-
+    z-index:5;
 `;
 
 //TODO: Disable arrow controls to mobile device

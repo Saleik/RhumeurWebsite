@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from 'uuid';
 const Div = styled.div`
     display: flex;
     flex-direction: column;
-    white-space: pre-line;
 `;
 
 export const ContactInfo = props => {

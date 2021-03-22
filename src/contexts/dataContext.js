@@ -74,6 +74,10 @@ export const DataProvider = props => {
                     caption,
                     texte
                     }[0...6],
+                    "contact":*[_type == "contact"]{
+                      phoneNumber,
+                      address
+                    }[0],
                 }`
 
     //fetch data to sanity studio

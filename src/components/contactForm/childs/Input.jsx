@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FormInput = styled.div`
+const Field = styled.div`
     display:flex;
     flex-direction: column;
     position: relative;
@@ -9,7 +9,7 @@ const FormInput = styled.div`
     width: 15rem;
 
     label{
-        color:lightgray;
+        color:black;
         bottom:10%;
         left: 0;
     };
@@ -18,23 +18,24 @@ const FormInput = styled.div`
         bottom: 0;
         left: 0;
         width: 0;
-        height: 2px;
+        height: .1rem;
         background-color: red;
     };
 
     span,
     label{
         position:absolute;
-        transition: .5s;
+        transition:.5s;
     };
     
     input{
         outline: none;
         border:0;
-        border-bottom:solid 0.1rem lightgray;
+        border-bottom:solid 0.1rem black;
         padding:0;
 
-        :focus{
+        :focus,
+        :valid{
             ~label{
                 color:red;
                 transform: translateY(-110%);
@@ -45,29 +46,31 @@ const FormInput = styled.div`
             };
 
         };
-
-        :valid{
-
-            ~ label{
-            color:red;
-            transform: translateY(-110%);
-            };
-
-            ~span{
-                width:100%;
-            }
-        } 
     };
 `;
 
+/**
+ * Input generator
+ * @param {type, name, onChange, value} props 
+ * @returns 
+ */
 export const Input = props => {
 
-    const { type, name, label } = props;
+    const { type, name, label, onChange, value } = props;
     return (
-        <FormInput>
-            <input type={type} name={name} id={name} required />
-            <label htmlFor="name">{label}</label>
+        <Field>
+            <input
+                onChange={onChange}
+                type={type}
+                name={name}
+                id={name}
+                value={value}
+                required
+            />
+            <label htmlFor='name'>
+                {label}
+            </label>
             <span></span>
-        </FormInput>
+        </Field>
     )
 }

@@ -1,13 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import sanityClient from '../utils/client'
+import React, {
+    useState,
+    useEffect
+} from 'react';
+import sanityClient from '../utils/client';
 
 const DataContext = React.createContext({});
 
+/**
+ * fetch content to sanity studio & display for entire app
+ * @param {children} props 
+ * @returns 
+ */
 export const DataProvider = props => {
+
+    const {
+        children
+    } = props;
+
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
+
+    //Query GROQ to fetch Sanity Studio
     const query = `{
                     "menu": *[_type == "menu"]{
                         "logo":{
@@ -78,7 +93,7 @@ export const DataProvider = props => {
                       phoneNumber,
                       address
                     }[0],
-                }`
+                }`;
 
     //fetch data to sanity studio
     useEffect(() => {
@@ -92,14 +107,20 @@ export const DataProvider = props => {
                 setIsLoading(false);
             });
 
-    }, [query, setData, setError])
+    }, [query, setData, setError]);
 
-    return (
-        <DataContext.Provider value={{ data, error, isLoading }}>
-            {props.children}
-        </DataContext.Provider>
+    return ( <
+        DataContext.Provider value = {
+            {
+                data,
+                error,
+                isLoading
+            }
+        } > {
+            children
+        } <
+        /DataContext.Provider>
     )
-}
+};
 
 export const useData = () => React.useContext(DataContext);
-

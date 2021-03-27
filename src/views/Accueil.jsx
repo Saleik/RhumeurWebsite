@@ -1,10 +1,10 @@
 import React from 'react';
-import { useData } from '../contexts/dataContext';
+import { useData } from '../hooks/dataContext';
 import styled from 'styled-components';
 import { Container } from '../styles/globalStyles';
 import { Button } from '../components/button/Button';
 
-const ImageContainer = styled.div`
+const ImageWrapper = styled.div`
          grid-column:1 /span 2;
          grid-row:1;
     `;
@@ -19,6 +19,7 @@ const Section = styled.section`
        
     `;
 
+//Cst[component name] => custom components
 const CstContainer = styled(Container)`
          grid-template-columns: 1fr 1fr;
     `;
@@ -45,7 +46,7 @@ const BrandTitle = styled.h1`
     `;
 
 export const Accueil = () => {
-
+    //custom useContext
     const { data } = useData();
     //image full screen
     const url = data.accueil.image.url;
@@ -55,20 +56,23 @@ export const Accueil = () => {
     const insertion = data.accueil.text;
 
     return (
-        <Section id="accueil">
+        <Section id='accueil'>
             <CstContainer>
-                <ImageContainer>
+                <ImageWrapper>
                     <CstImg src={url} alt={alt} />
-                </ImageContainer>
+                </ImageWrapper>
                 <InsertionContainer>
                     <BrandTitle>Rhumeur</BrandTitle>
                     <p>{insertion}</p>
-                    <Button fontSize={'1.5rem'} fontColor='white' link={data.menu.eshopLink}>
+                    <Button
+                        fontSize={'1.5rem'}
+                        fontColor='white'
+                        link={data.menu.eshopLink}
+                    >
                         Acheter
                     </Button>
                 </InsertionContainer>
             </CstContainer>
-
         </Section>
     )
 }

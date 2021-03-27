@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useData } from '../contexts/dataContext';
+import { useData } from '../hooks/dataContext';
 import { Title, Container } from '../styles/globalStyles';
 import { Slider } from '../components/slider/Slider';
 import { Introduce } from '../components/introduce/Introduce';
 
+//Cst[component name] => custom components
 const CstContainer = styled(Container)`
     grid-template-columns: repeat(3, 1fr);
 `;
@@ -34,18 +35,18 @@ const ProductWrapper = styled.div`
 `;
 
 export const BestSellers = () => {
-
+    //custom useContext
     const { data } = useData();
     const sectionIntroduce = data.bestSellersIntroduce.text;
 
-    //get from the context
+    //get data from the context
     const products = data.bestSellers;
     const productsSpice = data.bestSellersSpice;
     const productsFruit = data.bestSellersFruit;
     //FIXME: Animation state
 
     return (
-        <section id="bestSellers">
+        <section id='bestSellers'>
             <CstContainer>
                 <CstTitle>
                     Best Sellers

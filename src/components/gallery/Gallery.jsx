@@ -7,6 +7,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import { motion } from 'framer-motion';
 import { Picture } from './childs/Picture';
 
+//Cst[component name] => custom components
 const CstContainer = styled(Container)`
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
@@ -15,7 +16,7 @@ const CstContainer = styled(Container)`
   
 `;
 
-const CarouselWrapper = styled(motion.div)`
+const LightBox = styled(motion.div)`
     position: fixed;
     width:100vw;
     height:100vh;
@@ -29,6 +30,12 @@ const CarouselWrapper = styled(motion.div)`
     z-index:5;
 `;
 
+/**
+ * Gallery
+ * @param {pictures} props 
+ * @returns 
+ */
+
 //TODO: Disable arrow controls to mobile device
 export const Gallery = props => {
 
@@ -37,11 +44,13 @@ export const Gallery = props => {
     const [toggle, setToggle] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
 
-    //Carousel display animate settings
-    const CarouselVariants = {
+    //Carousel animate motion settings
+    const variants = {
         visible: { opacity: 1 },
         hidden: { opacity: 0 },
-    }
+    };
+
+    //toggle lightbox on clicked picture
     const handleClick = (id = 0) => {
         if (toggle) {
             setActiveIndex(0);
@@ -88,10 +97,10 @@ export const Gallery = props => {
                 ))
             }
             {toggle && (
-                <CarouselWrapper
+                <LightBox
                     initial="hidden"
                     animate="visible"
-                    variants={CarouselVariants}
+                    variants={variants}
                 >
                     <AliceCarousel
                         activeIndex={activeIndex}
@@ -99,7 +108,7 @@ export const Gallery = props => {
                         touchMoveDefaultEvents
                         disableDotsControls
                     />
-                </CarouselWrapper>
+                </LightBox>
             )}
         </CstContainer >
     )

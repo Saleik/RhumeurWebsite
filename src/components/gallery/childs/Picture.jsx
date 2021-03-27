@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-
 const Img = styled(motion.img)`
     width:${props => props.width};
     height:${props => props.height};
@@ -14,7 +13,8 @@ const Img = styled(motion.img)`
         `
         }
     }}
-`
+`;
+
 const Figure = styled.figure`
     display: flex;
     flex-direction: column;
@@ -26,8 +26,38 @@ const Figure = styled.figure`
         font-size: 1.5rem;
     }
 `;
+
+//TODO: apply gradient black effect to light-box image
+
+/**
+ * Image styling for gallery and lightbox
+ * @param {
+ * url, 
+ * alt, 
+ * onClick,
+ * width, 
+ * height, 
+ * scale=false, 
+ * borderRadius, 
+ * forCarousel, 
+ * caption
+ * } props 
+ * @returns 
+ */
 export const Picture = props => {
-    const { url, alt, onClick, width, height, scale = false, borderRadius, forCarousel, caption } = props;
+
+    const {
+        url,
+        alt,
+        onClick,
+        width,
+        height,
+        scale = false,
+        borderRadius,
+        forCarousel,
+        caption
+    } = props;
+
     return (
         <>
             {

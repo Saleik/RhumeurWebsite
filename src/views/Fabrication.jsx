@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useData } from '../contexts/dataContext';
+import { useData } from '../hooks/dataContext';
 import ReactPlayer from 'react-player/youtube';
 import { Title, Container } from '../styles/globalStyles';
 import { Introduce } from '../components/introduce/Introduce';
 
+//Cst[component name] => custom components
 const CstContainer = styled(Container)`
         grid-template-columns: 1fr;
 `;
@@ -24,7 +25,7 @@ export const Fabrication = () => {
     const url = data.fabrication.video.link;
 
     return (
-        <section id="fabrication">
+        <section id='fabrication'>
             <CstContainer>
                 <Title>
                     Fabrication
@@ -33,10 +34,16 @@ export const Fabrication = () => {
                     {sectionIntroduce}
                 </Introduce>
                 <PlayerWrapper>
-                    <ReactPlayer height='100%' width='100%' url={url} controls={true} muted={true} playing={false} />
+                    <ReactPlayer
+                        height='100%'
+                        width='100%'
+                        url={url}
+                        controls={true}
+                        muted={true}
+                        playing={false}
+                    />
                 </PlayerWrapper>
             </CstContainer>
-
         </section >
     )
 }

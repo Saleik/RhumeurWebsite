@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../../button/Button';
 
-
 const Div = styled.div`
     display:flex;
     align-items:center;
@@ -21,7 +20,12 @@ const Div = styled.div`
         margin:0;
         padding:1rem;
     }
-`
+`;
+/**
+ * current display product presentation
+ * @param {title, children, link} props 
+ * @returns 
+ */
 export const Resume = props => {
 
     const { title, children, link } = props;

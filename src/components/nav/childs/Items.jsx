@@ -5,8 +5,8 @@ const Item = styled.li`
     font-family: 'Roboto', sans-serif;
     list-style: none;
     display: inline;
-    margin: 0 1rem 0 1rem;
     position: relative;
+    margin: 0 .5rem;
 
     a{
          :after{

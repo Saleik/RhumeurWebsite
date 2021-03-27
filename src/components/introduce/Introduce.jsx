@@ -26,14 +26,24 @@ const P = styled.p`
     
 `;
 
+/**
+ * if components is visible render text content
+ * @param {children, colNum} props 
+ * @returns
+ */
 export const Introduce = props => {
 
     const { children, colNum } = props;
     const [isInTheViewport, setIsInTheViewport] = useState();
 
     return (
-        <VizSensor partialVisibility onChange={isVisible => setIsInTheViewport(isVisible)}>
-            <P colNum={colNum} isInTheViewport={isInTheViewport}>{children}</P>
+        <VizSensor
+            partialVisibility
+            onChange={isVisible => setIsInTheViewport(isVisible)}
+        >
+            <P colNum={colNum} isInTheViewport={isInTheViewport}>
+                {children}
+            </P>
         </VizSensor>
     )
 }

@@ -3,35 +3,39 @@ import styled from 'styled-components';
 import { Items } from "./childs/Items";
 import { Social } from './childs/Social';
 import { Brand } from './childs/Brand';
-import { useData } from '../../contexts/dataContext';
+import { useData } from '../../hooks/dataContext';
 import { Shop } from './childs/Shop';
 import { useEffect, useState } from 'react';
+import { Burger } from './childs/Burger';
 
 //TODO: nav not responsive && clipping during transition to fixed
 
-const Navbar = styled.nav`
+const Navbar = styled.div`
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 5rem;
+    width:100%;
+    border-bottom: .1rem solid lightgrey;
+    z-index:1;
+    background-color: white;
     ${props => {
         if (!props.fixed) {
             return `
-            position: fixed;    
-        `
+                position: fixed;    
+            `
         }
     }};
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    height:4rem;
-    width: 100%;
-    border-bottom: 1px solid lightgrey;
-    z-index:1;
-    background-color: white;
-    ul{
-         text-align: center;
-        width: 100%;
-        margin: 0 auto;
-    }
-    `;
+    nav{
+        grid-column: 2;
+        align-self:center;
+        position: relative;
+        justify-self:center;
+        ul{
+            display: flex;
+        }
 
+    }
+`;
 export const Nav = props => {
     const { items } = props;
     const { data } = useData();
@@ -48,29 +52,35 @@ export const Nav = props => {
     const instagramLink = data.menu.socialMedia.instagram;
 
     //menu postion fixed on scroll
-    const [positionToFixed, setPositionToFixed] = useState(false);
+    const [positionFixed, setPositionFixed] = useState(false);
 
     useEffect(() => {
         window.onscroll = () => {
             if (window.pageYOffset === 0) {
-                setPositionToFixed(true);
+                setPositionFixed(true);
             } else {
-                setPositionToFixed(false);
+                setPositionFixed(false);
             }
         }
+
     }, []);
 
     return (
-        <Navbar fixed={positionToFixed}>
+        <Navbar fixed={positionFixed}>
             <Brand src={url} alt={alt} />
-            <ul>
-                {
-                    Object.entries(items).map(obj => (<Items key={uuidv4()} link={obj[1]} tag={obj[0]} />))
-                }
-            </ul>
+            <Burger />
+            <nav>
+                <ul>
+                    {
+                        Object.entries(items).map(obj => (<Items key={uuidv4()} link={obj[1]} tag={obj[0]} />))
+                    }
+                </ul>
+            </nav>
+
             <Shop url={eshopLink} />
             <Social socialNetwork={{ 'facebook-f': facebookLink, 'instagram': instagramLink }} />
         </Navbar>
+
     )
 }
 

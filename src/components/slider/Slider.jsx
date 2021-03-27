@@ -12,6 +12,7 @@ const Div = styled.div`
         }
     }}
 `;
+
 const SliderWrapper = styled.div`
     width: 40rem;
     height:50rem;
@@ -21,10 +22,15 @@ const SliderWrapper = styled.div`
     }
 `;
 
-
+/**
+ * @param {products, right} props 
+ * @returns 
+ */
 export const Slider = props => {
 
     const { products, right } = props;
+
+    //store index current display slide
     const [index, setIndex] = useState(0);
 
     return (
@@ -32,11 +38,19 @@ export const Slider = props => {
             <SliderWrapper>
                 <Carousel setIndex={setIndex}>
                     {products &&
-                        products.map(product => (<img key={uuidv4()} src={product.image} alt={product.alt} />))
+                        products.map(product => (
+                            <img key={uuidv4()}
+                                src={product.image}
+                                alt={product.alt}
+                            />
+                        ))
                     }
                 </Carousel>
             </SliderWrapper>
-            <Resume title={products[index].name} link={products[index].link}>
+            <Resume
+                title={products[index].name}
+                link={products[index].link}
+            >
                 {products[index].resume}
             </Resume>
         </Div>

@@ -34,6 +34,12 @@ const GalleryWrapper = styled.div`
     span{
         font-weight: bold;
     }
+
+    @media screen and (max-width: 1024px){
+        span{
+            font-size: 1.2rem;
+        }
+    }
 `;
 
 export const QuiSommesNous = () => {

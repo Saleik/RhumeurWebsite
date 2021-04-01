@@ -4,14 +4,14 @@ import styled from 'styled-components';
 const Div = styled.div`
     --animation-curve: cubic-bezier(1, 0, 0, 1);
     position:relative;
-    margin:0 auto;
     grid-column:2;
     align-self:center;
     justify-self:center;
     display:none;
+    width:15px;
     label {
-        width: 3.5rem;
-        height: .5rem;
+        width: 15px;
+        height: 2px;
         background-color:black;
         position: absolute;
         cursor: pointer;
@@ -19,12 +19,12 @@ const Div = styled.div`
         &::before,
         &::after {
             content: "";
-            width: 3.5rem;
-            height: .5rem;
+            width: 15px;
+            height: 2px;
             background-color: black;
             position: absolute;
             display: block;
-            color: red;
+            color:black;
             transition: all 0.6s var(--animation-curve);
         }
 
@@ -42,18 +42,18 @@ const Div = styled.div`
             transform-origin: left bottom;
         }
     }
-
+   
     input:checked ~ label::before {
-    content: "";
+        content: "";
         background-color: black;
-        transform: rotateZ(50deg);
+        transform: rotateZ(41deg);
         left: 10%;
     }
 
     input:checked ~ label::after {
-    content: "";
+        content: "";
         background-color: black;
-        transform: rotateZ(-50deg);
+        transform: rotateZ(-41deg);
         left: 10%;
     }
 
@@ -67,19 +67,37 @@ const Div = styled.div`
 
     input {
       display: none;
-    };
+    }
 
-    @media screen and (max-width: 812px){
+    @media screen and (max-width: 1024px){
         display:block
+    }
+
+    @media screen and (min-width: 768px){
+        width: 20px;
+
+        label{
+            height: 4px;
+            width: 30px;
+
+            &::after,
+            &::before{
+                height: 4px;
+                width: 30px
+            }
+        }
+            
     }
 `
 
-export const Burger = () => {
+export const Burger = props => {
+
+    const { onClick, toggle } = props;
 
     return (
         <Div>
-            <input type="checkbox" name="toggle" id="toggle" />
-            <label htmlFor="toggle" />
+            <input onClick={() => onClick(!toggle)} type="checkbox" name="toggle" id="toggle" />
+            <label htmlFor='toggle' />
         </Div>
     )
 }

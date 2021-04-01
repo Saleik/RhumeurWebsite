@@ -16,7 +16,7 @@ const CstTitle = styled(Title)`
 `;
 
 const ProductWrapper = styled.div`
-        grid-column: ${props => props.column ? props.column : '1'};
+        grid-column: 1/span3;
         grid-row: ${props => props.row ? props.row : '3'};
         border: 0.1rem solid red;
         ${props => {
@@ -43,7 +43,6 @@ export const BestSellers = () => {
     const products = data.bestSellers;
     const productsSpice = data.bestSellersSpice;
     const productsFruit = data.bestSellersFruit;
-    //FIXME: Animation state
 
     return (
         <section id='bestSellers'>
@@ -51,7 +50,7 @@ export const BestSellers = () => {
                 <CstTitle>
                     Best Sellers
                 </CstTitle>
-                <Introduce>{sectionIntroduce}</Introduce>
+                <Introduce colNum={'1/span3'}>{sectionIntroduce}</Introduce>
                 <ProductWrapper>
                     <Slider products={products} />
                 </ProductWrapper>

@@ -16,6 +16,13 @@ const Div = styled.div`
     span{
         font-weight: bold;
     }
+
+    @media screen and (max-width: 1024px){
+        
+        i, span{
+            font-size: 2rem;
+        }
+    }
 `;
 export const Item = props => {
 

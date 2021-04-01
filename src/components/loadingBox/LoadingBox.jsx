@@ -86,6 +86,10 @@ div:nth-child(12) {
   top: 52px;
   left: 62px;
 }
+
+@media screen and (max-width: 1024px){
+  margin:5rem;
+}
 `
 
 export default function LoadingBox() {

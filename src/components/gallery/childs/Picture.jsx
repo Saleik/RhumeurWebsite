@@ -3,16 +3,24 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const Img = styled(motion.img)`
-    width:${props => props.width};
-    height:${props => props.height};
+    width:100%;
+    height:40rem;
     cursor:pointer;
-    ${props => {
-        if (props.borderRadius) {
-            return `
-            border-radius: ${props.borderRadius};
-        `
-        }
-    }}
+    border-radius: .5rem;
+`;
+
+const ImgWrapper = styled.div`
+    justify-self: center;
+    display: inline-block;
+    overflow: hidden;
+    width:100%;
+    height:100%;
+    border-radius: .5rem;
+
+    ${Img}{
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 const Figure = styled.figure`
@@ -27,18 +35,13 @@ const Figure = styled.figure`
     }
 `;
 
-//TODO: apply gradient black effect to light-box image
-
 /**
  * Image styling for gallery and lightbox
  * @param {
  * url, 
  * alt, 
  * onClick,
- * width, 
- * height, 
  * scale=false, 
- * borderRadius, 
  * forCarousel, 
  * caption
  * } props 
@@ -50,7 +53,6 @@ export const Picture = props => {
         url,
         alt,
         onClick,
-        width,
         height,
         scale = false,
         borderRadius,
@@ -65,12 +67,11 @@ export const Picture = props => {
                     <Figure>
                         <Img
                             borderRadius={borderRadius}
-                            width={width}
                             height={height}
                             src={url}
                             alt={alt}
                             whileHover={{
-                                scale: scale ? 1.05 : 1,
+                                scale: scale ? 1.1 : 1,
                                 transitionDuration: '.5s',
                             }}
                             onClick={onClick}
@@ -80,18 +81,22 @@ export const Picture = props => {
                         </figcaption>
                     </Figure>
                 ) : (
-                    <Img
-                        borderRadius={borderRadius}
-                        width={width}
+                    <ImgWrapper
                         height={height}
-                        src={url}
-                        alt={alt}
-                        whileHover={{
-                            scale: scale ? 1.05 : 1,
-                            transitionDuration: '.5s',
-                        }}
-                        onClick={onClick}
-                    />
+                        borderRadius={borderRadius}
+                    >
+                        <Img loading="lazy"
+                            borderRadius={borderRadius}
+                            height={height}
+                            src={url}
+                            alt={alt}
+                            whileHover={{
+                                scale: scale ? 1.05 : 1,
+                                transitionDuration: '.5s',
+                            }}
+                            onClick={onClick}
+                        />
+                    </ImgWrapper>
                 )}
         </>
 

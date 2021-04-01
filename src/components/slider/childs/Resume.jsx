@@ -20,6 +20,16 @@ const Div = styled.div`
         margin:0;
         padding:1rem;
     }
+
+    @media screen and (max-width:1024px){
+        h2{
+            font-size: 1.8rem;
+        }
+
+        p{
+            font-size: 1.3rem;
+        }
+    }
 `;
 /**
  * current display product presentation
@@ -29,16 +39,15 @@ const Div = styled.div`
 export const Resume = props => {
 
     const { title, children, link } = props;
+
     return (
-        <div>
-            <Div>
-                <h2>{title}</h2>
-                <p>{children}</p>
-                <Button link={link}>
-                    Acheter
-                    </Button>
-            </Div>
-        </div>
+        <Div>
+            <h2>{title}</h2>
+            <p>{children}</p>
+            <Button link={link}>
+                Acheter
+            </Button>
+        </Div>
     )
 }
 

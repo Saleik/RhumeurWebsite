@@ -8,7 +8,13 @@ const Div = styled.div`
     img{
         width: 100%;
         max-width:10rem;
-        height: auto;
+        height: 100%;
+    }
+
+      @media screen and (max-width: 1024px){
+            img{
+                max-width:13rem;
+            }
     }
 `
 export const Brand = props => {

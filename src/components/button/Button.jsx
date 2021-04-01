@@ -17,7 +17,9 @@ const CstButton = styled(motion.button)`
         border-color: ${props => props.borderColor};
         color: ${props => props.fontColor ? 'black' : 'white'}
     }
-
+    @media screen and (max-width:1024px){
+           font-size: 2rem;
+    }
 `
 /**
  * Button render with styling props, wrap in a if link !== null

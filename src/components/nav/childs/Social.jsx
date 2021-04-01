@@ -14,17 +14,23 @@ const SocialIcon = styled(motion.div)`
     background-color: rgb(211, 211, 211);
     font-size: 1.5rem;
 
-    li{
+    i{
         color: white;
         display: flex;
         letter-spacing:normal;
-    };
+    }
 
     :hover{
-        li{
+        i{
           color:black;
         }
-    };
+    }
+    
+    @media screen and (max-width: 1024px){
+                font-size: 2rem;
+                width:4rem;
+                height:4rem;
+    }
 `;
 
 const Div = styled.div`
@@ -36,6 +42,9 @@ const Div = styled.div`
     justify-self:end;
     justify-content: space-between;
     display: flex;
+     @media screen and (max-width: 1024px){
+                width:10rem;
+    }
 `;
 
 export const Social = props => {
@@ -55,7 +64,7 @@ export const Social = props => {
                         key={uuidv4()}
                     >
                         <a href={value[1]}>
-                            <li className={`fab fa-${value[0]}`} />
+                            <i className={`fab fa-${value[0]}`} />
                         </a>
                     </SocialIcon>
                 ))

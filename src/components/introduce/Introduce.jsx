@@ -23,6 +23,9 @@ const P = styled.p`
                     `
         }
     }}
+    @media screen and (max-width:1024px){
+               font-size: 1.3rem;
+    }
     
 `;
 

@@ -10,10 +10,65 @@ import { Picture } from './childs/Picture';
 //Cst[component name] => custom components
 const CstContainer = styled(Container)`
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
-    padding: 2rem 0;
-    width: 100%;
-  
+    grid-template-rows: 30rem;
+    grid-auto-rows: 30rem;
+    grid-gap: .5rem;
+    padding: 2rem .5rem;
+
+    //Alice Carousel control
+    .alice-carousel__prev-btn-wrapper{
+        text-align:left;
+    }
+
+    .alice-carousel__next-btn-wrapper{
+        text-align:right;
+    }
+
+    .alice-carousel__next-btn{
+        right: 10%;
+        transform: translateX(-50%);
+
+    }
+
+    .alice-carousel__prev-btn{
+        left: 10%;
+        transform: translateX(-50%);
+    }
+
+    .alice-carousel__next-btn,
+    .alice-carousel__prev-btn{
+        position:absolute;
+        top:50%;
+        transform: translateY(-50%);
+    }
+
+    .alice-carousel__next-btn-item,
+    .alice-carousel__prev-btn-item{
+        color:white;
+        font-weight:bold;
+        background-color: rgb(0,0,0, .6);
+        border-radius: 50%;
+        width: 3rem;
+        height:3rem;
+        position: relative;
+        span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+
+        }
+        :hover{
+            color: lightblue;
+            transition: .3s;
+        }
+    }
+    @media screen and (max-width: 992px){
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 50rem;
+        grid-auto-rows: 50rem;
+    }
 `;
 
 const LightBox = styled(motion.div)`
@@ -27,7 +82,7 @@ const LightBox = styled(motion.div)`
     display:flex;
     align-items:center;
     justify-content:center;
-    z-index:5;
+    z-index:100;
 `;
 
 /**
@@ -66,8 +121,6 @@ export const Gallery = props => {
         const items = [];
         pictures.forEach(item => {
             items.push(<Picture
-                height='60rem'
-                width='100rem'
                 key={uuidv4()}
                 url={item.image}
                 alt={item.caption}
@@ -85,9 +138,6 @@ export const Gallery = props => {
                 pictures.map((picture, index) => (
                     <Picture
                         scale
-                        borderRadius='.5rem'
-                        width='30rem'
-                        height='30rem'
                         key={uuidv4()}
                         url={picture.image}
                         alt={picture.caption}

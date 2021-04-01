@@ -31,14 +31,14 @@ const Field = styled.div`
     input{
         outline: none;
         border:0;
-        border-bottom:solid 0.1rem black;
+        border-bottom: solid .1rem black;
         padding:0;
 
         :focus,
         :valid{
             ~label{
                 color:red;
-                transform: translateY(-110%);
+                transform: translateY(-100%);
             };
 
             ~span {
@@ -47,6 +47,15 @@ const Field = styled.div`
 
         };
     };
+
+    @media screen and (max-width: 1024px){
+        width: 30rem;
+        font-size: 2rem;
+        input[type='text'],
+        input[type='email']{
+            font-size: inherit;
+        }
+    }
 `;
 
 /**
@@ -67,7 +76,7 @@ export const Input = props => {
                 value={value}
                 required
             />
-            <label htmlFor='name'>
+            <label htmlFor={name}>
                 {label}
             </label>
             <span></span>

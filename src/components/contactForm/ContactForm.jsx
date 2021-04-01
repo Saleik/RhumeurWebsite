@@ -14,6 +14,7 @@ const Form = styled.form`
     flex-direction: column;
     justify-items: center;
     align-items:center;
+    margin-top: 5rem;
 `;
 
 const FormGroup = styled.div`
@@ -50,6 +51,15 @@ const Textarea = styled.textarea`
         background-color: rgba(255, 62, 62, .2);
         transition:.5s;
     };
+
+    @media screen and (max-width: 1024px){
+        max-width: 64rem;
+        min-height: 32rem;
+        font-size: 2rem;
+        ::placeholder{
+            font-size: 2rem;
+        }
+    }
 `;
 
 const Div = styled.div`

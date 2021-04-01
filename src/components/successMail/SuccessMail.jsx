@@ -4,11 +4,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const Div = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items:center;
     position: relative;
-    width:20rem;
+    width:25rem;
+    height:32rem;
     img{
         width: 100%;
         position:absolute;

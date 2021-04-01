@@ -4,12 +4,20 @@ import styled from 'styled-components';
 
 const Div = styled.div`
     grid-column: 3;
+    width:4rem;
     grid-row:1;
     align-self:center;
+    padding-left:3rem;
     i{
         color: rgba(0, 0, 0);
         font-size: 2rem;
-    };
+    }
+
+    @media screen and (max-width: 1024px){
+        i{
+            font-size: 3rem;
+        }
+    }
 `;
 
 export const Shop = props => {

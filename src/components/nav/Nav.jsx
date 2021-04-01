@@ -8,15 +8,15 @@ import { Shop } from './childs/Shop';
 import { useEffect, useState } from 'react';
 import { Burger } from './childs/Burger';
 
-//TODO: nav not responsive && clipping during transition to fixed
+//TODO: Close nav onClick to tag section
 
 const Navbar = styled.div`
     display:grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 5rem;
+    grid-template-rows: min-content;
     width:100%;
     border-bottom: .1rem solid lightgrey;
-    z-index:1;
+    z-index:90;
     background-color: white;
     ${props => {
         if (!props.fixed) {
@@ -24,16 +24,43 @@ const Navbar = styled.div`
                 position: fixed;    
             `
         }
-    }};
+    }}
     nav{
         grid-column: 2;
         align-self:center;
         position: relative;
         justify-self:center;
+
         ul{
             display: flex;
         }
 
+        @media screen and (max-width: 1024px){
+            text-align: center;
+            transition: opacity 1s, height .5s;
+            ${props => {
+        if (props.toggle) {
+            return `
+                        opacity: 1;
+                        height: 25rem;
+                        `
+        } else {
+            return `
+                        opacity: 0;
+                        height: 0;
+                        overflow: hidden;
+                        `
+        }
+
+    }}
+            ul{
+                flex-direction: column;
+                padding:0;
+                margin:0;
+                font-size: 2rem;
+            }
+        }
+        
     }
 `;
 export const Nav = props => {
@@ -53,6 +80,7 @@ export const Nav = props => {
 
     //menu postion fixed on scroll
     const [positionFixed, setPositionFixed] = useState(false);
+    const [toggle, setToggle] = useState(false);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -66,13 +94,13 @@ export const Nav = props => {
     }, []);
 
     return (
-        <Navbar fixed={positionFixed}>
+        <Navbar fixed={positionFixed} toggle={toggle}>
             <Brand src={url} alt={alt} />
-            <Burger />
+            <Burger onClick={setToggle} toggle={toggle} />
             <nav>
                 <ul>
                     {
-                        Object.entries(items).map(obj => (<Items key={uuidv4()} link={obj[1]} tag={obj[0]} />))
+                        Object.entries(items).map(obj => (<Items key={uuidv4()} onClick={setToggle} toggle={toggle} link={obj[1]} tag={obj[0]} />))
                     }
                 </ul>
             </nav>

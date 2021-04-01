@@ -55,6 +55,29 @@ const CstContainer = styled(Container)`
         justify-self: center;
         align-self: center;
     };
+
+    @media screen and (max-width: 1024px){
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content;
+        grid-auto-flow: row;
+
+        ${CstContactForm}{
+            grid-row: 1;
+        }
+
+        ${CstContactInfo}{
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        ${SeparationLine}{
+            grid-column: 1;
+            grid-row:2;
+            height: .2rem;
+            width: 20rem;
+            margin: 2rem 0;
+        }
+    }
 `;
 
 

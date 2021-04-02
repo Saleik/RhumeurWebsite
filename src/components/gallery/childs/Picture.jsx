@@ -41,7 +41,6 @@ const Figure = styled.figure`
  * url, 
  * alt, 
  * onClick,
- * scale=false, 
  * forCarousel, 
  * caption
  * } props 
@@ -54,7 +53,6 @@ export const Picture = props => {
         alt,
         onClick,
         height,
-        scale = false,
         borderRadius,
         forCarousel,
         caption
@@ -70,10 +68,6 @@ export const Picture = props => {
                             height={height}
                             src={url}
                             alt={alt}
-                            whileHover={{
-                                scale: scale ? 1.1 : 1,
-                                transitionDuration: '.5s',
-                            }}
                             onClick={onClick}
                         />
                         <figcaption>
@@ -91,7 +85,7 @@ export const Picture = props => {
                             src={url}
                             alt={alt}
                             whileHover={{
-                                scale: scale ? 1.05 : 1,
+                                scale: 1.2,
                                 transitionDuration: '.5s',
                             }}
                             onClick={onClick}

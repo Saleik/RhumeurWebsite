@@ -1,23 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 
-const Card = styled.div`
+const Card = styled(motion.div)`
         display: flex;
         width: 60rem;
-        grid-column: ${props => props.index > 0 && props.index < 2 ? props.index + 1 + '/span' + (props.index + 2) : '1/span2'};
-        grid-row:${props => props.index > 0 && props.index < 2 ? props.index + 3 : '3'};
-
-        @media screen and (max-width: 1400px){
         ${props => {
         if (props.index === 0) {
             return `
-                    padding-left: 5rem;            
-                `
+                margin-left: -30rem;            
+            `
+        } else {
+            return `
+                margin-right: -30rem;
+            `
         }
-    }}
-        }
-    `;
+    }};
+`;
 
 const CardBody = styled.div`
     display: flex;
@@ -57,14 +57,52 @@ const Thumbnails = styled.img`
 export const CardMember = props => {
 
     const { name, pic, children, index } = props;
+
+    const leftCardVariant = {
+        hidden: {
+            opacity: 0,
+            x: '150%'
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: .5,
+                delay: .3,
+                type: 'tween'
+            }
+        },
+
+    };
+
+    const rightCardVariant = {
+        hidden: {
+            opacity: 0,
+            x: '-150%'
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: .5,
+                delay: .3,
+                type: 'tween'
+            }
+        },
+
+    }
     return (
-        <Card index={index}>
+        <Card
+            index={index}
+            initial='hidden'
+            animate='visible'
+            variants={index > 0 ? rightCardVariant : leftCardVariant}
+        >
             <Thumbnails loading="lazy" src={pic} />
             <CardBody>
                 <h3>{name}</h3>
                 <p>{children}</p>
             </CardBody>
-
         </Card>
     )
 }

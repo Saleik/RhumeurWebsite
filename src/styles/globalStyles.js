@@ -31,9 +31,9 @@ export const GlobalStyle = createGlobalStyle `
         font-display: swap;
 
         section {
-            width: 100 vw;
+            width: 100vw;
             height: auto;
-            padding-top: 12rem;
+            padding-top: 10rem;
         }
 
         a {

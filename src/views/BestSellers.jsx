@@ -19,6 +19,9 @@ const ProductWrapper = styled.div`
         grid-column: 1/span3;
         grid-row: ${props => props.row ? props.row : '3'};
         border: 0.1rem solid red;
+        width: 100%;
+        display:flex;
+        align-self: flex-end;
         ${props => {
         if (props.middle) {
             return `border:none;`
@@ -29,9 +32,6 @@ const ProductWrapper = styled.div`
         `
         }
     }}
-        width: 100%;
-        display:flex;
-        align-self: flex-end;
 `;
 
 export const BestSellers = () => {

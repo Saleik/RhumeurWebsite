@@ -3,9 +3,10 @@ import { useData } from '../hooks/dataContext';
 import styled from 'styled-components';
 import { Container } from '../styles/globalStyles';
 import { Button } from '../components/button/Button';
+import { motion } from 'framer-motion';
 
 const Section = styled.section`
-        padding-top:0;
+        padding-top: 8rem;
     `;
 
 //Cst[component name] => custom components
@@ -40,8 +41,9 @@ const InsertionContainer = styled.div`
         flex-direction: column;
         justify-content:center;
         align-items:center;
-        padding: 0 5rem;
+        text-align: center;
         line-height:2rem;
+        padding: 0 2rem;
 
         h1{
             font-family: 'Finger Paint', cursive;
@@ -49,16 +51,18 @@ const InsertionContainer = styled.div`
             font-weight:normal;
             color: white;
             -webkit-text-stroke: .1rem black;
+            margin:0;
+            padding:2rem 0;
         }
-
+        p{
+            font-size: 1.8rem;
+        }
         @media screen and (max-width:1024px){
            line-height: 2.5rem;
-           p{
-               font-size: 1.8rem;
-           }
         }
         
     `;
+
 
 export const Accueil = () => {
     //custom useContext
@@ -75,8 +79,37 @@ export const Accueil = () => {
             <CstContainer>
                 <img src={url} alt={alt} />
                 <InsertionContainer>
-                    <h1>Rhumeur</h1>
-                    <p>{insertion}</p>
+                    <motion.h1
+                        initial={{
+                            y: '-130%',
+                            opacity: 0,
+                        }}
+                        animate={{
+                            y: 0,
+                            opacity: 1,
+                        }}
+                        transition={{
+                            duration: 1,
+                            delay: .5
+                        }}
+                    >
+                        Rhumeur
+                        </motion.h1>
+                    <motion.p
+                        initial={{
+                            x: '-50%',
+                            opacity: 0
+                        }}
+                        animate={{
+                            x: 0,
+                            opacity: 1,
+                        }}
+                        transition={{
+                            duration: 1,
+                            delay: .5
+                        }}
+                    >{insertion}
+                    </motion.p>
                     <Button
                         fontSize={'1.5rem'}
                         fontColor='white'

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { Button } from '../../button/Button';
 
 const Div = styled.div`
@@ -39,10 +40,29 @@ const Div = styled.div`
 export const Resume = props => {
 
     const { title, children, link } = props;
+    /*     const [render, setRender] = useState();
+     */
+    /* useEffect(() => {
+    }, [children]) */
 
+    const variants = {
+        hidden: {
+            opacity: 0
+        },
+        visible: {
+            opacity: 1
+        },
+        transition: { duration: 1 }
+    }
     return (
         <Div>
-            <h2>{title}</h2>
+            <motion.h2
+                initial='hidden'
+                animate='visible'
+                variants={variants}
+            >
+                {title}
+            </motion.h2>
             <p>{children}</p>
             <Button link={link}>
                 Acheter

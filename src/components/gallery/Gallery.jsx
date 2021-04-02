@@ -137,7 +137,6 @@ export const Gallery = props => {
             {
                 pictures.map((picture, index) => (
                     <Picture
-                        scale
                         key={uuidv4()}
                         url={picture.image}
                         alt={picture.caption}

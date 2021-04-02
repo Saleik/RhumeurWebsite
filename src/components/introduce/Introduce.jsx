@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import VizSensor from 'react-visibility-sensor';
+import VisibilitySensor from 'react-visibility-sensor';
 
 const P = styled.p`
         grid-row: 2;
@@ -38,15 +38,14 @@ export const Introduce = props => {
 
     const { children, colNum } = props;
     const [isInTheViewport, setIsInTheViewport] = useState();
-
     return (
-        <VizSensor
+        <VisibilitySensor
             partialVisibility
             onChange={isVisible => setIsInTheViewport(isVisible)}
         >
             <P colNum={colNum} isInTheViewport={isInTheViewport}>
                 {children}
             </P>
-        </VizSensor>
+        </VisibilitySensor>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import { Resume } from './childs/Resume';
@@ -32,7 +32,11 @@ export const Slider = props => {
 
     //store index current display slide
     const [index, setIndex] = useState(0);
+    /* const [render, setRender] = useState(false); */
 
+    /* useEffect(() => {
+        setRender(!render);
+    }, [index]) */
     return (
         <Div right={right}>
             <SliderWrapper>

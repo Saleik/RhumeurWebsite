@@ -5,26 +5,18 @@ import { Social } from './childs/Social';
 import { Brand } from './childs/Brand';
 import { useData } from '../../hooks/dataContext';
 import { Shop } from './childs/Shop';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Burger } from './childs/Burger';
-
-//TODO: Close nav onClick to tag section
 
 const Navbar = styled.div`
     display:grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: min-content;
+    grid-template-rows: 8rem;
     width:100%;
     border-bottom: .1rem solid lightgrey;
     z-index:90;
     background-color: white;
-    ${props => {
-        if (!props.fixed) {
-            return `
-                position: fixed;    
-            `
-        }
-    }}
+    position: fixed;
     nav{
         grid-column: 2;
         align-self:center;
@@ -37,7 +29,7 @@ const Navbar = styled.div`
 
         @media screen and (max-width: 1024px){
             text-align: center;
-            transition: opacity 1s, height .5s;
+            transition: opacity 1s, height .3s;
             ${props => {
         if (props.toggle) {
             return `
@@ -79,22 +71,11 @@ export const Nav = props => {
     const instagramLink = data.menu.socialMedia.instagram;
 
     //menu postion fixed on scroll
-    const [positionFixed, setPositionFixed] = useState(false);
+
     const [toggle, setToggle] = useState(false);
 
-    useEffect(() => {
-        window.onscroll = () => {
-            if (window.pageYOffset === 0) {
-                setPositionFixed(true);
-            } else {
-                setPositionFixed(false);
-            }
-        }
-
-    }, []);
-
     return (
-        <Navbar fixed={positionFixed} toggle={toggle}>
+        <Navbar fixed={true} toggle={toggle}>
             <Brand src={url} alt={alt} />
             <Burger onClick={setToggle} toggle={toggle} />
             <nav>

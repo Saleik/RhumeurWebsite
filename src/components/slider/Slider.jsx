@@ -43,8 +43,7 @@ export const Slider = props => {
                 <Carousel setIndex={setIndex}>
                     {products &&
                         products.map(product => (
-                            <img loading="lazy"
-                                key={uuidv4()}
+                            <img key={uuidv4()}
                                 src={product.image}
                                 alt={product.alt}
                             />

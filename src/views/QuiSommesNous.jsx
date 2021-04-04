@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { CardMember } from '../components/cardMember/CardMember';
 import { Gallery } from '../components/gallery/Gallery';
 import { Introduce } from '../components/introduce/Introduce';
-import { useData } from '../hooks/dataContext';
+import { useData } from '../contexts/dataContext';
 import { useIsInTheViewport } from '../hooks/useIsInTheViewport';
 import { Container, Title } from '../styles/globalStyles';
 

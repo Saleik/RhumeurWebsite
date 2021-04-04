@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ContactForm } from '../components/contactForm/ContactForm';
 import { ContactInfo } from '../components/contactInfo/ContactInfo';
-import { useData } from '../hooks/dataContext';
+import { useData } from '../contexts/dataContext';
 import { Container, Title } from '../styles/globalStyles';
 
 const Section = styled.section`

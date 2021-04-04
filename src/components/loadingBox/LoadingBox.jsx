@@ -92,7 +92,7 @@ div:nth-child(12) {
 }
 `
 
-export default function LoadingBox() {
+export function LoadingBox() {
 
   const variants = {
     visible: {

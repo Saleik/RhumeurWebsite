@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useData } from '../hooks/dataContext';
+import { useData } from '../contexts/dataContext';
 import { Title, Container } from '../styles/globalStyles';
 import { Slider } from '../components/slider/Slider';
 import { Introduce } from '../components/introduce/Introduce';

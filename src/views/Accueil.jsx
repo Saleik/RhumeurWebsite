@@ -1,5 +1,5 @@
 import React from 'react';
-import { useData } from '../hooks/dataContext';
+import { useData } from '../contexts/dataContext';
 import styled from 'styled-components';
 import { Container } from '../styles/globalStyles';
 import { Button } from '../components/button/Button';

@@ -1,10 +1,12 @@
 import React, {
     useState,
-    useEffect
+    useEffect,
+    createContext,
+    useContext
 } from 'react';
 import sanityClient from '../utils/client';
 
-const DataContext = React.createContext({});
+const DataContext = createContext({});
 
 /**
  * fetch content to sanity studio & display for entire app
@@ -109,18 +111,11 @@ export const DataProvider = props => {
 
     }, [query, setData, setError]);
 
-    return ( <
-        DataContext.Provider value = {
-            {
-                data,
-                error,
-                isLoading
-            }
-        } > {
+    return (<DataContext.Provider value={{ data, error, isLoading }
+    } > {
             children
-        } <
-        /DataContext.Provider>
+        } </DataContext.Provider>
     )
 };
 
-export const useData = () => React.useContext(DataContext);
+export const useData = () => useContext(DataContext);

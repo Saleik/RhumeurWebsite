@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useData } from '../hooks/dataContext';
+import { useData } from '../contexts/dataContext';
 import ReactPlayer from 'react-player/youtube';
 import { Title, Container } from '../styles/globalStyles';
 import { Introduce } from '../components/introduce/Introduce';

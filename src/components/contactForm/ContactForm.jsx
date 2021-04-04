@@ -6,7 +6,7 @@ import { Button } from '../button/Button';
 import ReCAPTCHA from "react-google-recaptcha";
 import { contactFormReducer } from '../../reducers/contactFormReducer';
 import { MessageBox } from '../messageBox/MessageBox';
-import LoadingBox from '../loadingBox/LoadingBox';
+import { LoadingBox } from '../loadingBox/LoadingBox';
 import { SuccessMail } from '../successMail/SuccessMail';
 
 const Form = styled.form`

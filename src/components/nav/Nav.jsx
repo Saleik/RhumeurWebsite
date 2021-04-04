@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Items } from "./childs/Items";
 import { Social } from './childs/Social';
 import { Brand } from './childs/Brand';
-import { useData } from '../../hooks/dataContext';
+import { useData } from '../../contexts/dataContext';
 import { Shop } from './childs/Shop';
 import { useState } from 'react';
 import { Burger } from './childs/Burger';

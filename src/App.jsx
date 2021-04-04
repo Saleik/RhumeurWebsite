@@ -1,12 +1,13 @@
 import { Nav } from './components/nav/Nav';
 import { GlobalStyle } from "./styles/globalStyles";
-import { useData } from './hooks/dataContext';
+import { useData } from './contexts/dataContext';
 import { Accueil } from './views/Accueil';
 import { Fabrication } from './views/Fabrication';
 import { BestSellers } from './views/BestSellers';
 import { QuiSommesNous } from './views/QuiSommesNous';
 import { Contact } from './views/Contact';
-
+import { SplashScreen } from './components/splashScreen/SplashScreen';
+import { motion } from 'framer-motion';
 function App() {
   const {
     isLoading,
@@ -16,32 +17,33 @@ function App() {
   return (<>
     <GlobalStyle />
     {
-      isLoading ? (
-        <h1> Chargement... </h1>
-      ) :
-        error !== null ? (
-          <h1> ERREUR LORS DU CHARGEMENT DES DONNÉES</h1 >
-        ) : (
-          <>
-            <Nav items={
-              {
-                'Accueil': 'accueil',
-                'Fabrication': 'fabrication',
-                'Best Sellers': 'bestSellers',
-                'Qui sommes-nous ?': 'quiSommesNous',
-                'Contact': 'contact'
-              }
+      isLoading || error !== null ? (
+        <SplashScreen error={error} />
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: .5 }}
+        >
+          <Nav items={
+            {
+              'Accueil': 'accueil',
+              'Fabrication': 'fabrication',
+              'Best Sellers': 'bestSellers',
+              'Qui sommes-nous ?': 'quiSommesNous',
+              'Contact': 'contact'
             }
-            />
-            <main>
-              <Accueil />
-              <Fabrication />
-              <BestSellers />
-              <QuiSommesNous />
-              <Contact />
-            </main>
-          </>
-        )
+          }
+          />
+          <main>
+            <Accueil />
+            <Fabrication />
+            <BestSellers />
+            <QuiSommesNous />
+            <Contact />
+          </main>
+        </motion.div>
+      )
     } </>
   );
 }

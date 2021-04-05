@@ -3,7 +3,7 @@ export default {
     name: 'whoWeAreIntroduce',
     title: 'Qui sommes-nous ? - Introduction',
     type: 'document',
-    __experimental_actions: ['update', 'create', 'publish'],
+    __experimental_actions: ['update', 'publish'],
 
     fields: [
         {

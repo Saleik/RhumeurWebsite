@@ -65,8 +65,7 @@ export const Picture = props => {
                     <Figure>
                         <Img
                             borderRadius={borderRadius}
-                            height={height}
-                            src={url}
+                            src={url + '?fm=webp'}
                             alt={alt}
                             onClick={onClick}
                         />
@@ -79,10 +78,10 @@ export const Picture = props => {
                         height={height}
                         borderRadius={borderRadius}
                     >
-                        <Img loading="lazy"
+                        <Img
+                            loading="lazy"
                             borderRadius={borderRadius}
-                            height={height}
-                            src={url}
+                            src={url + '?fm=webp'}
                             alt={alt}
                             whileHover={{
                                 scale: 1.2,

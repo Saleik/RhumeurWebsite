@@ -11,6 +11,7 @@ const Div = styled(motion.div)`
     max-width: 32rem;
     span{
         font-weight:bold;
+        color: white
     }
 `;
 

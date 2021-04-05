@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useData } from '../contexts/dataContext';
-import ReactPlayer from 'react-player/youtube';
+import ReactPlayer from 'react-player/lazy';
 import { Title, Container } from '../styles/globalStyles';
 import { Introduce } from '../components/introduce/Introduce';
 
@@ -41,6 +41,7 @@ export const Fabrication = () => {
                         controls={true}
                         muted={true}
                         playing={false}
+                        light
                     />
                 </PlayerWrapper>
             </CstContainer>

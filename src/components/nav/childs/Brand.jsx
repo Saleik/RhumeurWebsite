@@ -22,7 +22,7 @@ export const Brand = props => {
     return (
         <Div>
             <a href="/">
-                <img src={src} alt={alt} />
+                <img src={src + '?fm=webp'} alt={alt} />
             </a>
         </Div>
 

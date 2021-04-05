@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import VisibilitySensor from 'react-visibility-sensor';
+import { useIsInTheViewport } from '../../hooks/useIsInTheViewport';
 
 const P = styled.p`
         grid-row: 2;
@@ -37,15 +37,14 @@ const P = styled.p`
 export const Introduce = props => {
 
     const { children, colNum } = props;
-    const [isInTheViewport, setIsInTheViewport] = useState();
+    const [isVisible, containerRef] = useIsInTheViewport({
+        root: null,
+        rootMargin: '0px',
+        threshold: .5
+    })
     return (
-        <VisibilitySensor
-            partialVisibility
-            onChange={isVisible => setIsInTheViewport(isVisible)}
-        >
-            <P colNum={colNum} isInTheViewport={isInTheViewport}>
-                {children}
-            </P>
-        </VisibilitySensor>
+        <P ref={containerRef} colNum={colNum} isInTheViewport={isVisible}>
+            {children}
+        </P>
     )
 }

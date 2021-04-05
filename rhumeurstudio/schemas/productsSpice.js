@@ -3,7 +3,7 @@ export default {
     name: 'productsSpice',
     title: 'Best Sellers-Epice',
     type: 'document',
-    __experimental_actions: ['update', 'publish', 'create', 'delete'],
+    __experimental_actions: ['update', 'publish'],
     fields: [
         {
             name: 'name',

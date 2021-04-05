@@ -3,14 +3,15 @@ export default {
     name: 'whoWeAre',
     title: 'Qui sommes-nous ? - Membres',
     type: 'document',
-    __experimental_actions: ['update', 'create', 'publish'],
+    __experimental_actions: ['update', 'publish'],
 
     fields: [
         {
             name: 'picture',
             title: 'Photo',
             type: 'image',
-            description: 'Photo de présentation, formats(PNG, JPEG, SVG, WEBP) - Poids maximum recommandé = 1MB'
+            description: 'Photo de présentation, formats(PNG, JPEG, SVG, WEBP) - Poids maximum recommandé = 1MB',
+            validation: Rule => Rule.required()
         },
         {
             name: 'firstName',

@@ -134,13 +134,9 @@ export const ContactForm = props => {
             ...formState,
             'g-recaptcha-response': captchaValue
         };
-        setTimeout(() => {
-            setLoading(false);
-            setEmailSuccess(true);
-        }, 3000)
 
         //sending email
-        /* emailjs.send(
+        emailjs.send(
             process.env.REACT_APP_EMAIL_JS_SERVICE,
             process.env.REACT_APP_EMAIL_JS_TEMPLATE,
             params,
@@ -163,7 +159,7 @@ export const ContactForm = props => {
                 setShowError(true)
                 console.error(error.txt);
             })
-        */
+
     };
 
     return (

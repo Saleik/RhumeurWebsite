@@ -77,7 +77,7 @@ export const Accueil = () => {
     return (
         <Section id='accueil'>
             <CstContainer>
-                <img src={url} alt={alt} />
+                <img src={url + '?fm=webp'} alt={alt} />
                 <InsertionContainer>
                     <motion.h1
                         initial={{

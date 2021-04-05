@@ -40,10 +40,7 @@ const Div = styled.div`
 export const Resume = props => {
 
     const { title, children, link } = props;
-    /*     const [render, setRender] = useState();
-     */
-    /* useEffect(() => {
-    }, [children]) */
+    const [render, setRender] = useState(false);
 
     const variants = {
         hidden: {

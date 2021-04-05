@@ -4,8 +4,7 @@ export default {
     title: 'Accueil',
     type: 'document',
     __experimental_actions: ['update', 'publish'],
-    fields: [
-        {
+    fields: [{
             name: 'background',
             title: 'Arrière-plan',
             type: 'image',

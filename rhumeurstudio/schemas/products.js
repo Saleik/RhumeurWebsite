@@ -3,7 +3,7 @@ export default {
     name: 'products',
     title: 'Best Sellers-Divers',
     type: 'document',
-    __experimental_actions: ['update', 'publish', 'create', 'delete'],
+    __experimental_actions: ['update', 'publish'],
     fields: [
         {
             name: 'name',
@@ -16,7 +16,7 @@ export default {
             name: 'picture',
             title: 'Photo',
             type: 'image',
-            description: 'Formats(PNG, JPEG, SVG, WEBP',
+            description: 'Formats(PNG, JPEG, SVG, WEBP)',
             options: {
                 accept: ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml']
             },

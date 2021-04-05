@@ -32,7 +32,7 @@ const Field = styled.div`
         outline: none;
         border:0;
         border-bottom: solid .1rem black;
-        padding:0;
+        padding:1;
 
         :focus,
         :valid{
@@ -55,7 +55,12 @@ const Field = styled.div`
         input[type='email']{
             font-size: inherit;
         }
+        span{
+            display: none;
+        }        
     }
+
+   
 `;
 
 /**

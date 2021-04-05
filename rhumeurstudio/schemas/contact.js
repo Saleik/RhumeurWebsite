@@ -3,7 +3,7 @@ export default {
     name: 'contact',
     title: 'Contact - Informations',
     type: 'document',
-    __experimental_options: ['create', 'update', 'publish'],
+    __experimental_actions: ['update', 'publish'],
     fields: [
         {
             name: 'phoneNumber',

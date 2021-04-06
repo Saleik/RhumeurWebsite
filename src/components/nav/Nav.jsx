@@ -77,11 +77,11 @@ export const Nav = props => {
     return (
         <Navbar fixed={true} toggle={toggle}>
             <Brand src={url} alt={alt} />
-            <Burger onClick={setToggle} toggle={toggle} />
+            <Burger onClick={setToggle} />
             <nav>
                 <ul>
                     {
-                        Object.entries(items).map(obj => (<Items key={uuidv4()} onClick={setToggle} toggle={toggle} link={obj[1]} tag={obj[0]} />))
+                        Object.entries(items).map(obj => (<Items key={uuidv4()} link={obj[1]} tag={obj[0]} />))
                     }
                 </ul>
             </nav>

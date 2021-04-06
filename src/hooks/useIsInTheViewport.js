@@ -4,6 +4,12 @@ import {
     useState
 } from 'react'
 
+/**
+ * Get visibility setting and return true or false
+ * if the component is in the viewport
+ * @param {object} options 
+ * @returns array
+ */
 export const useIsInTheViewport = (options) => {
 
     const containerRef = useRef(null);

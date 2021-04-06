@@ -47,7 +47,6 @@ const MapWrapper = styled.div`
 const CstContainer = styled(Container)`
     grid-template-columns: 1fr min-content 1fr;
     padding: 0 2rem;
-
     ${CstContactForm},
     ${CstContactInfo},
     ${SeparationLine},

@@ -58,6 +58,7 @@ export const CardMember = props => {
 
     const { name, pic, children, index } = props;
 
+    //Motion animation settings
     const leftCardVariant = {
         hidden: {
             opacity: 0,
@@ -98,7 +99,7 @@ export const CardMember = props => {
             animate='visible'
             variants={index > 0 ? rightCardVariant : leftCardVariant}
         >
-            <Thumbnails loading='lazy' src={pic + '?fm=webp'} />
+            <Thumbnails width='320px' height='320px' loading='lazy' src={pic + '?fm=webp'} />
             <CardBody>
                 <h3>{name}</h3>
                 <p>{children}</p>

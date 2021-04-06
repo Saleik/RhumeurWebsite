@@ -92,11 +92,11 @@ const Div = styled.div`
 
 export const Burger = props => {
 
-    const { onClick, toggle } = props;
+    const { onClick } = props;
 
     return (
         <Div>
-            <input onClick={() => onClick(!toggle)} type="checkbox" name="toggle" id="toggle" />
+            <input onClick={() => onClick(toggle => !toggle)} type="checkbox" name="toggle" id="toggle" />
             <label htmlFor='toggle' />
         </Div>
     )

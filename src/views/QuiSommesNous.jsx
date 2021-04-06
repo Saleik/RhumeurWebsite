@@ -39,7 +39,6 @@ const Div = styled.div`
 const GalleryWrapper = styled.div`
     padding-top:5rem;
     grid-column: 1/span3;
-    grid-row: ${props => props.lastRows && props.lastRows} ;
     text-align:center;
 
     span{
@@ -65,10 +64,6 @@ export const QuiSommesNous = () => {
     const sectionIntroduce = data.quiSommesNousIntroduction.text;
     const members = data.quiSommesNous;
     const galleryPicture = data.quiSommesNousGalerie;
-
-    //Always set the gallery on the last row
-    const lastRows = (members.length + 2) + 1;
-
     return (
         <Section id='quiSommesNous'>
             <CstContainer>
@@ -90,7 +85,7 @@ export const QuiSommesNous = () => {
                         </CardMember>
                     ))}
                 </Div>
-                <GalleryWrapper lastRows={lastRows}>
+                <GalleryWrapper>
                     <span>
                         Vous pouvez aussi nous retrouvez sur les différents salons de la régions Grand-est, ci-dessous des photos de nos bars éphémère:
                         </span>

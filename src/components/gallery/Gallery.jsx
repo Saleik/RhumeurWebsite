@@ -142,13 +142,12 @@ export const Gallery = props => {
                         alt={picture.caption}
                         onClick={() => handleClick(index)}
                     />
-
                 ))
             }
             {toggle && (
                 <LightBox
-                    initial="hidden"
-                    animate="visible"
+                    initial='hidden'
+                    animate='visible'
                     variants={variants}
                 >
                     <AliceCarousel

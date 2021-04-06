@@ -8,16 +8,24 @@ import { QuiSommesNous } from './views/QuiSommesNous';
 import { Contact } from './views/Contact';
 import { SplashScreen } from './components/splashScreen/SplashScreen';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 function App() {
   const {
     isLoading,
     error
   } = useData();
 
+  const [hideSplashScreen, setHideSplashScreen] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setHideSplashScreen(true);
+    }, 3000)
+  }, []);
+
   return (<>
     <GlobalStyle />
     {
-      isLoading || error !== null ? (
+      isLoading || error !== null || !hideSplashScreen ? (
         <SplashScreen error={error} />
       ) : (
         <motion.div

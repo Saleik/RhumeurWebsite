@@ -43,8 +43,10 @@ const Disclaimer = styled.span`
 export const SplashScreen = props => {
 
     const { error } = props;
+
     return (
-        <Section initial={{ opacity: 0 }}
+        <Section
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}>

@@ -11,7 +11,6 @@ const Div = styled.div`
 export const ContactInfo = props => {
 
     const { data, className } = props;
-
     return (
         <Div className={className}>
             {

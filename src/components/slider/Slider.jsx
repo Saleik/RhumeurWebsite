@@ -19,6 +19,9 @@ const SliderWrapper = styled.div`
     img{
         width: 40rem;
         height: 50rem;
+        :hover{
+            cursor: pointer;
+        }
     }
 `;
 
@@ -39,8 +42,10 @@ export const Slider = props => {
                     {products &&
                         products.map(product => (
                             <img
+                                width='600px'
+                                height='800px'
                                 key={uuidv4()}
-                                src={product.image + '?fm=webp'}
+                                src={product.image + '?fm=webp&h=800&w=600'}
                                 alt={product.alt}
                             />
                         ))
@@ -48,6 +53,7 @@ export const Slider = props => {
                 </Carousel>
             </SliderWrapper>
             <Resume
+                key={index * Math.PI}
                 title={products[index].name}
                 link={products[index].link}
             >

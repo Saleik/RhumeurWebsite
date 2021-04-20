@@ -45,7 +45,7 @@ export const Slider = props => {
                                 width='600px'
                                 height='800px'
                                 key={uuidv4()}
-                                src={product.image + '?fm=webp&h=800&w=600'}
+                                src={product.image + '?fm=jpg&h=800&w=600'}
                                 alt={product.alt}
                             />
                         ))

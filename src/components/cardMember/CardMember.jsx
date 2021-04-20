@@ -99,7 +99,7 @@ export const CardMember = props => {
             animate='visible'
             variants={index > 0 ? rightCardVariant : leftCardVariant}
         >
-            <Thumbnails width='320px' height='320px' loading='lazy' src={pic + '?fm=webp'} />
+            <Thumbnails width='320px' height='320px' loading='lazy' src={pic + '?fm=jpg'} />
             <CardBody>
                 <h3>{name}</h3>
                 <p>{children}</p>

@@ -4,16 +4,27 @@ import styled, {
 
 export const GlobalStyle = createGlobalStyle `
     @font-face {
-        font-family: 'Avenir' ;
-        src: url('font/AvenirLTStd-Black.otf') format('otf');
+         font-family: 'Avenir';
+         src: url('fonts/avenir/AvenirLTStd-Black.eot');
+         src: url('fonts/avenir/AvenirLTStd-Black.eot?#iefix') format('embedded-opentype'),
+             url('fonts/avenir/AvenirLTStd-Black.woff2') format('woff2'),
+             url('fonts/avenir/AvenirLTStd-Black.woff') format('woff'),
+             url('fonts/avenir/AvenirLTStd-Black.ttf') format('ttf'),
+             url('fonts/avenir/AvenirLTStd-Black.svg#AvenirLTStd-Black') format('svg');
+         font-weight: 900;
+         font-style: normal;
 
-        font-family:'Roboto';
-        src: url('font/Roboto-Regular.ttf') format('ttf');
-
-        font-family:'Finger Paint';
-        src: url('font/FingerPaint-Regular.ttf') format('ttf');
+        font-family: 'Roboto';
+        src: url('fonts/roboto/Roboto-Regular.eot');
+        src: url('fonts/roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+            url('fonts/roboto/Roboto-Regular.woff2') format('font-woff2'),
+            url('fonts/roboto/Roboto-Regular.woff') format('font-woff'),
+            url('fonts/roboto/Roboto-Regular.ttf') format('tff'),
+            url('fonts/roboto/Roboto-Regular.svg#Roboto-Regular') format('svg');
+        font-weight: normal;
+        font-style: normal;
     }
-
+    
     html,
     body{
         margin:0;
@@ -45,9 +56,17 @@ export const GlobalStyle = createGlobalStyle `
             object-fit: cover;
         }
 
+        h1{
+            justify-self: center;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+        }
        @media screen and (max-width: 1024px){
             h1{
                 font-size:2.2rem;
+                justify-self: center;
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
             }
        }
     }
@@ -65,13 +84,6 @@ export const GlobalStyle = createGlobalStyle `
     background-color: lightblue;   
     }
 `;
-
-
-export const Title = styled.h1 `
-        justify-self: center;
-        font-family:'Roboto', sans-serif;
-        margin:0;
-    `;
 
 export const Container = styled.div `
         display: grid;

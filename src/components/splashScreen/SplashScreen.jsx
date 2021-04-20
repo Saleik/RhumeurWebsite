@@ -1,6 +1,6 @@
 import React from 'react';
 import { LoadingBox } from '../loadingBox/LoadingBox';
-import splashScreenBg from '../../images/splashScreen.webp';
+import splashScreenBg from '../../images/splashScreen.jpg';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { MessageBox } from '../messageBox/MessageBox';

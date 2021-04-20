@@ -7,16 +7,18 @@ import { motion } from 'framer-motion';
 
 const Section = styled.section`
         padding-top: 8rem;
+        height: 100vh;
     `;
 
 //Cst[component name] => custom components
 const CstContainer = styled(Container)`
          grid-template-columns: 1fr 1fr;
          img{
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             grid-column:1 /span 2;
             grid-row:1;
+            background: linear-gradient(to bottom, rgba(0,0,0,.2), rgba(217,6,6,.1)), url(${props => props.url})
          }
 
          span{
@@ -41,7 +43,7 @@ const InsertionContainer = styled.div`
         flex-direction: column;
         justify-content:center;
         align-items:center;
-        text-align: center;
+        text-align: justify;
         line-height:2rem;
         padding: 0 2rem;
 
@@ -60,6 +62,20 @@ const InsertionContainer = styled.div`
         @media screen and (max-width:1024px){
            line-height: 2.5rem;
         }
+
+        @media screen and (max-width:500px){
+           grid-column: 2;
+           justify-self: start;
+           align-self: center;
+           line-height: 4.5rem;
+           margin-right: 2rem;
+           h1{
+               font-size: 7rem;
+           }
+           p{
+               font-size: 2.5rem;
+           } 
+        }
         
     `;
 
@@ -76,8 +92,8 @@ export const Accueil = () => {
 
     return (
         <Section id='accueil'>
-            <CstContainer>
-                <img width='1920px' height='1080px' src={url + '?fm=webp&h=1080&w=1920'} alt={alt} />
+            <CstContainer url={url + '?fm=jpg&h=1080&w=1920'}>
+                <img width='1920px' height='1080px' src={url + '?fm=jpg&h=1080&w=1920'} alt={alt} />
                 <InsertionContainer>
                     <motion.h1
                         initial={{

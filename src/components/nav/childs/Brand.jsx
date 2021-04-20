@@ -21,8 +21,8 @@ export const Brand = props => {
     const { src, alt } = props
     return (
         <Div>
-            <a href='http://localhost:3333/desk'>
-                <img width='200px' height='150px' src={src + '?fm=webp&h=150&w=200'} alt={alt} />
+            <a href='https://rhumeur-admin.sanity.studio/desk'>
+                <img width='200px' height='150px' src={src + '?fm=png&h=150&w=200'} alt={alt} />
             </a>
         </Div>
 

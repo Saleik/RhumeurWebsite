@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useData } from '../contexts/dataContext';
 import ReactPlayer from 'react-player/lazy';
-import { Title, Container } from '../styles/globalStyles';
+import { Container } from '../styles/globalStyles';
 import { Introduce } from '../components/introduce/Introduce';
 
 //Cst[component name] => custom components
@@ -27,9 +27,9 @@ export const Fabrication = () => {
     return (
         <section id='fabrication'>
             <CstContainer>
-                <Title>
+                <h1>
                     Fabrication
-                </Title>
+                </h1>
                 <Introduce>
                     {sectionIntroduce}
                 </Introduce>

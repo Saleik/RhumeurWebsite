@@ -14,15 +14,6 @@ const Field = styled.div`
         left: 0;
     };
 
-    span{
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: .1rem;
-        background-color: red;
-    };
-
-    span,
     label{
         position:absolute;
         transition:.5s;
@@ -30,22 +21,23 @@ const Field = styled.div`
     
     input{
         outline: none;
+         border-radius: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         border:0;
         border-bottom: solid .1rem black;
         padding:1;
 
         :focus,
-        :valid{
+        :valid:required ${props => !!props.filled && ',:optional'}{
             ~label{
                 color:red;
                 transform: translateY(-100%);
             };
 
-            ~span {
-                width: 100%;
-            };
-
-        };
+        }
+        
     };
 
     @media screen and (max-width: 1024px){
@@ -55,11 +47,7 @@ const Field = styled.div`
         input[type='email']{
             font-size: inherit;
         }
-        span{
-            display: none;
-        }        
     }
-
    
 `;
 
@@ -72,19 +60,18 @@ export const Input = props => {
 
     const { type, name, label, onChange, value } = props;
     return (
-        <Field>
+        <Field filled={value}>
             <input
                 onChange={onChange}
                 type={type}
                 name={name}
                 id={name}
                 value={value}
-                required
+                required={name !== 'corporation'}
             />
             <label htmlFor={name}>
                 {label}
             </label>
-            <span></span>
         </Field>
     )
 }

@@ -110,8 +110,7 @@ export const ContactForm = props => {
         //verify form input and email value
         if (!(!!lastname) ||
             !(!!subject) ||
-            !(!!message) ||
-            !(!!corporation)) {
+            !(!!message)) {
             setError(MESSAGE_STATUS.fullFillInputs);
             setShowError(true);
             return;

@@ -4,8 +4,7 @@ export default {
     title: 'Best Sellers-Epice',
     type: 'document',
     __experimental_actions: ['update', 'publish'],
-    fields: [
-        {
+    fields: [{
             name: 'name',
             title: 'Recette',
             type: 'string',

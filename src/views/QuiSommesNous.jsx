@@ -6,7 +6,7 @@ import { Gallery } from '../components/gallery/Gallery';
 import { Introduce } from '../components/introduce/Introduce';
 import { useData } from '../contexts/dataContext';
 import { useIsInTheViewport } from '../hooks/useIsInTheViewport';
-import { Container, Title } from '../styles/globalStyles';
+import { Container } from '../styles/globalStyles';
 
 const Section = styled.section`
     display:flex;
@@ -17,13 +17,12 @@ const Section = styled.section`
 //Cst[component name] => custom components
 const CstContainer = styled(Container)`
     grid-template-columns:repeat(3, 1fr);
-`;
 
-const CstTitle = styled(Title)`
+    h1{
     grid-column: 1/span3;
     grid-row: 1;
-    justify-self: center;
-    align-items:center; 
+    align-items:center;
+    }
 `;
 
 const Div = styled.div`
@@ -67,9 +66,9 @@ export const QuiSommesNous = () => {
     return (
         <Section id='quiSommesNous'>
             <CstContainer>
-                <CstTitle>
+                <h1>
                     Qui somme-nous ?
-            </CstTitle>
+                </h1>
                 <Introduce colNum='1/span3'>
                     {sectionIntroduce}
                 </Introduce>

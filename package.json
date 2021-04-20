@@ -1,9 +1,9 @@
 {
   "name": "rhumeur",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@sanity/client": "^2.2.6",
+    "@sanity/client": "^2.7.4",
     "emailjs-com": "^2.6.4",
     "framer-motion": "^3.9.2",
     "react": "^17.0.1",

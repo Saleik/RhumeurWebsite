@@ -68,7 +68,7 @@ export const Picture = props => {
                             width='1280px'
                             height='960px'
                             borderRadius={borderRadius}
-                            src={url + '?fm=webp&h=960&w=1280'}
+                            src={url + '?fm=jpg&h=960&w=1280'}
                             alt={alt}
                             onClick={onClick}
                         />
@@ -86,7 +86,7 @@ export const Picture = props => {
                             width='600px'
                             height='600px'
                             borderRadius={borderRadius}
-                            src={url + '?fm=webp&h=600&w=600'}
+                            src={url + '?fm=jpg&h=600&w=600'}
                             alt={alt}
                             whileHover={{
                                 scale: 1.2,

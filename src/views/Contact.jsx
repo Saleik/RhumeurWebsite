@@ -3,21 +3,19 @@ import styled from 'styled-components';
 import { ContactForm } from '../components/contactForm/ContactForm';
 import { ContactInfo } from '../components/contactInfo/ContactInfo';
 import { useData } from '../contexts/dataContext';
-import { Container, Title } from '../styles/globalStyles';
+import { Container } from '../styles/globalStyles';
 
 const Section = styled.section`
     display: flex;
     justify-content:center;
     align-items:center;
+    h1{
+        grid-column: 1/span3;
+        grid-row:1;
+    }
 `;
 
 //Cst[component name] => custom components
-const CstTitle = styled(Title)`
-    grid-column: 1/span3;
-    grid-row:1;
-    padding-bottom:5rem;
-`;
-
 const CstContactForm = styled(ContactForm)`
     grid-column: 1;
 `;
@@ -37,7 +35,6 @@ const MapWrapper = styled.div`
     grid-row: 4;
     grid-column: 1/span3;
     padding-top: 5rem;
-    
     iframe{
         width: 100rem;
         height: 40rem;
@@ -94,7 +91,7 @@ export const Contact = () => {
     return (
         <Section id='contact'>
             <CstContainer>
-                <CstTitle>Contact</CstTitle>
+                <h1>Contact</h1>
                 <CstContactForm />
                 <SeparationLine />
                 <CstContactInfo data={contactData} />

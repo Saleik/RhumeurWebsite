@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useData } from '../contexts/dataContext';
-import { Title, Container } from '../styles/globalStyles';
+import { Container } from '../styles/globalStyles';
 import { Slider } from '../components/slider/Slider';
 import { Introduce } from '../components/introduce/Introduce';
 
 //Cst[component name] => custom components
 const CstContainer = styled(Container)`
     grid-template-columns: repeat(3, 1fr);
-`;
 
-const CstTitle = styled(Title)`
-    grid-column: 1/span3;
-    grid-row:1;
+    h1{
+       grid-column: 1/span3;
+       grid-row:1;
+    }
 `;
 
 const ProductWrapper = styled.div`
@@ -47,9 +47,9 @@ export const BestSellers = () => {
     return (
         <section id='bestSellers'>
             <CstContainer>
-                <CstTitle>
+                <h1>
                     Best Sellers
-                </CstTitle>
+                </h1>
                 <Introduce colNum={'1/span3'}>{sectionIntroduce}</Introduce>
                 <ProductWrapper>
                     <Slider products={products} />

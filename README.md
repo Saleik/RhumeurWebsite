@@ -9,6 +9,6 @@ Development from scratch of new version of the showcase site designed in 2020 rh
 - Framework: React.js (CRA)
 - Library: Styled-components/EmailJS
 - CMS Back-end: Sanity Studio
-- Packages: react-player/react-visibility-sensor/framer- motion/uuid/react-alice-carousel/@sanity-client
+- Packages: react-player/framer- motion/uuid/react-alice-carousel/@sanity-client
 - Tools: VsCode/React developer tool/ResponsivelyApp
 - Package manager: YARN

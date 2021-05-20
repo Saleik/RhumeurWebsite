@@ -1,8 +1,6 @@
-import styled, {
-    createGlobalStyle
-} from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle `
+export const GlobalStyle = createGlobalStyle`
     @font-face {
          font-family: 'Avenir';
          src: url('fonts/avenir/AvenirLTStd-Black.eot');
@@ -44,7 +42,7 @@ export const GlobalStyle = createGlobalStyle `
         section {
             width: 100vw;
             height: auto;
-            padding-top: 10rem;
+            padding-top: 5rem;
         }
 
         a {
@@ -85,8 +83,8 @@ export const GlobalStyle = createGlobalStyle `
     }
 `;
 
-export const Container = styled.div `
-        display: grid;
-        position: relative;
-        grid-auto-rows: min-content;
+export const Container = styled.div`
+	display: grid;
+	position: relative;
+	grid-auto-rows: min-content;
 `;
